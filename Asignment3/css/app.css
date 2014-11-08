@@ -1,3 +1,18 @@
-﻿#canvas {
+﻿/*Header Styling*/
+header {
+    background-color: #FFDC86;
+}
+
+    header h1, h2 {
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+    }
+
+/*Footer Styling*/
+footer {
+    padding-top: 50px;
+}
+
+#canvas {
     border:dashed 1px black;
 }

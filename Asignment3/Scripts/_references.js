@@ -13,3 +13,4 @@
 /// <reference path="filters/colormatrix.js" />
 /// <reference path="filters/colormatrixfilter.js" />
 /// <reference path="filters/filter.js" />
+/// <reference path="lib/foundation.min.js" />

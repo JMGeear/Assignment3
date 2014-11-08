@@ -1,24 +1,86 @@
-﻿<!DOCTYPE html>
+﻿<!--index.html
+Author: Jeff Geear
+Last Modified by: Jeff Geear
+Date last modified: Nov. 1/2014
+Description:
+Instructor Tom Tsiliopoulos
+Version #1-->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asignment3</title>
     <!-- CSS Section -->
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 </head>
 <body onload="preload()">
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <!-- Header -->
+    <header>
+        <div class="row">
+            <div class="medium-3 columns">
+                <img src="assets/images/logo - Small.png" alt="Logo">
+            </div>
+            <div class="medium-9 columns">
+                <h1>Jeff Geear</h1>
+                <h1>Anger Managment</h1>
+            </div>
+        </div>
+    </header>
 
+    <!-- Game -->
+
+        <div class="row">
+            <div class="8-large large-centered columns">
+
+                <canvas id="canvas" width="800" height="400"></canvas>
+
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+
+
+            <div class="medium-2 columns">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
+            </div>
+            <div class="medium-10 columns">
+                <p><small>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. &copy; 2014 Jeff Geear<img src="assets/images/logo - Small.png" style="width:30px;" /></small></p>
+            </div>
+        </div>
+
+    </footer>
     <!-- JavaScript Section -->
     <script src="Scripts/lib/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/lib/foundation.min.js"></script>
+    <script>
+    $(document).foundation();
+    </script>
+
+    <!-- Game Framwork -->
     <script src="Scripts/lib/easeljs-0.7.1.min.js"></script>
     <script src="Scripts/lib/tweenjs-0.5.1.min.js"></script>
     <script src="Scripts/lib/soundjs-0.5.2.min.js"></script>
     <script src="Scripts/lib/preloadjs-0.4.1.min.js"></script>
-
+    
     <!-- Game Files -->
-    <script src="Scripts/game.js"></script>
+    <script src="Scripts/constants.js"></script>
+    <script src="Scripts/managers/asset.js"></script>
+    <script src="Scripts/objects/gameobject.js"></script>
+    <script src="Scripts/objects/Bird.js"></script>
+    <script src="Scripts/objects/Egg.js"></script>
+    <script src="Scripts/objects/Pig.js"></script>
+    <script src="Scripts/objects/Sky.js"></script>
+    <script src="Scripts/objects/scoreboard.js"></script>
+    <script src="Scripts/states/play.js"></script>
+    <script src="Scripts/states/menu.js"></script>
+    <script src="Scripts/states/gameover.js"></script>
+    <script src="Scripts/bGame.js"></script>
+
 </body>
 </html>

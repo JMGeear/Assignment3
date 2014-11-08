@@ -59,7 +59,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sounds\yay.ogg" />
+    <Content Include="assets\images\atlas.png" />
+    <Content Include="assets\sounds\coin.mp3" />
+    <Content Include="assets\sounds\Pig .mp3" />
+    <Content Include="css\foundation.css" />
+    <Content Include="assets\images\egg.png" />
+    <Content Include="assets\images\logo - Small.png" />
+    <Content Include="assets\images\pig angry birds.png" />
+    <Content Include="assets\images\sky.png" />
+    <Content Include="Scripts\lib\foundation.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,7 +78,7 @@
   <ItemGroup>
     <Content Include="css\app.css" />
     <Content Include="css\normalize.css" />
-    <Content Include="images\loading.jpg" />
+    <Content Include="assets\images\loading.jpg" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <None Include="Scripts\lib\jquery-2.1.1.intellisense.js" />
@@ -98,12 +106,23 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\constants.ts" />
+    <TypeScriptCompile Include="Scripts\managers\asset.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Bird.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Egg.ts" />
     <TypeScriptCompile Include="Scripts\lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\easeljs.d.ts" />
-    <TypeScriptCompile Include="Scripts\game.ts" />
+    <TypeScriptCompile Include="Scripts\bGame.ts" />
     <TypeScriptCompile Include="Scripts\lib\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\tweenjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Pig.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Scoreboard.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Sky.ts" />
+    <TypeScriptCompile Include="Scripts\states\gameover.ts" />
+    <TypeScriptCompile Include="Scripts\states\menu.ts" />
+    <TypeScriptCompile Include="Scripts\states\play.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
