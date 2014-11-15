@@ -22,4 +22,4 @@
     })();
     objects.Scoreboard = Scoreboard;
 })(objects || (objects = {}));
-//# sourceMappingURL=Scoreboard.js.map
+//# sourceMappingURL=scoreboard.js.map

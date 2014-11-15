@@ -6,7 +6,6 @@
 /// <reference path="../objects/scoreboard.ts" />
 
 module states {
-
     export function playState() {
         sky.update();
         egg.update();
@@ -29,16 +28,16 @@ module states {
         }
     }
 
-    export function Play() {
+    export function play() {
 
         game = new createjs.Container();
 
-        sky = new objects.Sky(game);
-        egg = new objects.Egg(game);
-        bird = new objects.Bird(game);
+        sky = new objects.sky(game);
+        egg = new objects.egg(game);
+        bird = new objects.bird(game);
 
         for (var count = 0; count < constants.PIG_NUM; count++) {
-            pigs[count] = new objects.Pig(game);
+            pigs[count] = new objects.pig(game);
         }
 
         scoreboard = new objects.Scoreboard(game);

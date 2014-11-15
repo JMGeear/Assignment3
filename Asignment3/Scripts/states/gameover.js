@@ -3,6 +3,7 @@
 /// <reference path="../objects/egg.ts" />
 /// <reference path="../objects/sky.ts" />
 /// <reference path="../objects/bird.ts" />
+/// <reference path="../objects/button.ts" />
 var states;
 (function (states) {
     function gameOverState() {
@@ -10,13 +11,13 @@ var states;
     }
     states.gameOverState = gameOverState;
 
-    function GameOver() {
+    function gameOver() {
         var gameOverText;
         var ScoreText;
 
         game = new createjs.Container();
 
-        sky = new objects.Sky(game);
+        sky = new objects.sky(game);
 
         ScoreText = new createjs.Text(scoreboard.score.toString(), constants.GAME_FONT, constants.FONT_COLOUR);
         ScoreText.regX = ScoreText.getBounds().width * 0.5;
@@ -32,16 +33,19 @@ var states;
         gameOverText.y = stage.canvas.height * 0.5;
         game.addChild(gameOverText);
 
-        gameOverText.addEventListener("click", function (e) {
+        stage.addChild(game);
+
+        var playButton = new objects.button(400, 100, 'playagain');
+        game.addChild(playButton);
+        playButton.addEventListener("click", function (e) {
             stage.removeChild(game);
             game.removeAllChildren();
             game.removeAllEventListeners();
-            currentState = constants.MENU_STATE;
+            currentState = constants.PLAY_STATE;
             changeState(currentState);
+            createjs.Sound.play('coin');
         });
-
-        stage.addChild(game);
     }
-    states.GameOver = GameOver;
+    states.gameOver = gameOver;
 })(states || (states = {}));
 //# sourceMappingURL=gameover.js.map

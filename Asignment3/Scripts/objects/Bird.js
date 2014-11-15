@@ -7,19 +7,19 @@
 var objects;
 (function (objects) {
     // Bird Class
-    var Bird = (function (_super) {
-        __extends(Bird, _super);
-        function Bird(game) {
+    var bird = (function (_super) {
+        __extends(bird, _super);
+        function bird(game) {
             _super.call(this, "bird", game);
             this.x = 80;
 
             stage.addChild(this);
         }
-        Bird.prototype.update = function () {
+        bird.prototype.update = function () {
             this.y = stage.mouseY;
         };
-        return Bird;
+        return bird;
     })(objects.GameObject);
-    objects.Bird = Bird;
+    objects.bird = bird;
 })(objects || (objects = {}));
-//# sourceMappingURL=Bird.js.map
+//# sourceMappingURL=bird.js.map

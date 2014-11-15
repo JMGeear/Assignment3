@@ -7,27 +7,27 @@
 var objects;
 (function (objects) {
     // Egg Class
-    var Egg = (function (_super) {
-        __extends(Egg, _super);
-        function Egg(game) {
+    var egg = (function (_super) {
+        __extends(egg, _super);
+        function egg(game) {
             _super.call(this, "egg", game);
-            this.dx = 5;
+            this.dx = 7;
             stage.addChild(this);
             this.reset();
         }
-        Egg.prototype.reset = function () {
+        egg.prototype.reset = function () {
             this.x = stage.canvas.width + this.width;
             this.y = Math.floor(Math.random() * stage.canvas.height);
         };
 
-        Egg.prototype.update = function () {
+        egg.prototype.update = function () {
             this.x -= this.dx;
             if (this.x < -(stage.canvas.width + this.width)) {
                 this.reset();
             }
         };
-        return Egg;
+        return egg;
     })(objects.GameObject);
-    objects.Egg = Egg;
+    objects.egg = egg;
 })(objects || (objects = {}));
-//# sourceMappingURL=Egg.js.map
+//# sourceMappingURL=egg.js.map

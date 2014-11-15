@@ -1,10 +1,10 @@
 ﻿module objects {
     // Egg Class
-    export class Egg extends objects.GameObject {
+    export class egg extends objects.GameObject {
         dx: number;
         constructor(game: createjs.Container) {
             super("egg", game);
-            this.dx = 5;
+            this.dx = 7;
             stage.addChild(this);
             this.reset();
         }
@@ -18,6 +18,7 @@
             this.x -= this.dx;
             if (this.x < -(stage.canvas.width + this.width)) {
                 this.reset();
+                
             }
 
         }

@@ -3,6 +3,7 @@
 /// <reference path="../objects/egg.ts" />
 /// <reference path="../objects/sky.ts" />
 /// <reference path="../objects/bird.ts" />
+/// <reference path="../objects/button.ts" />
 var states;
 (function (states) {
     function menuState() {
@@ -11,14 +12,14 @@ var states;
     }
     states.menuState = menuState;
 
-    function Menu() {
-        var angryBirdsText;
-
+    function menu() {
         game = new createjs.Container();
 
-        sky = new objects.Sky(game);
+        sky = new objects.sky(game);
 
-        bird = new objects.Bird(game);
+        bird = new objects.bird(game);
+
+        var angryBirdsText;
 
         angryBirdsText = new createjs.Text("Anger Management", constants.GAME_FONT, constants.FONT_COLOUR);
         angryBirdsText.regY = angryBirdsText.getBounds().height * 0.5;
@@ -27,16 +28,21 @@ var states;
         angryBirdsText.x = stage.canvas.width * 0.5;
         game.addChild(angryBirdsText);
 
-        angryBirdsText.addEventListener("click", function (e) {
+        var playButton = new objects.button(400, 100, 'play');
+
+        game.addChild(playButton);
+
+        playButton.addEventListener("click", function (e) {
             stage.removeChild(game);
             game.removeAllChildren();
             game.removeAllEventListeners();
             currentState = constants.PLAY_STATE;
             changeState(currentState);
+            createjs.Sound.play('coin');
         });
 
         stage.addChild(game);
     }
-    states.Menu = Menu;
+    states.menu = menu;
 })(states || (states = {}));
 //# sourceMappingURL=menu.js.map

@@ -2,22 +2,26 @@
 "images": ["atlas.png"],
 "frames": [
 
-    [219, 2, 65, 65], 
-    [286, 2, 65, 65], 
-    [219, 69, 65, 65], 
-    [286, 69, 62, 63], 
+    [219, 2, 320, 160], 
+    [541, 2, 320, 160], 
+    [863, 2, 65, 65], 
+    [930, 2, 65, 65], 
+    [863, 69, 65, 65], 
+    [930, 69, 62, 63], 
     [2, 2, 215, 177]
 ],
 "animations": {
     
-        "angry-bird-1":[0], 
-        "angry-bird-2":[1], 
-        "angry-bird-3":[2], 
-        "egg":[3], 
-        "pig angry birds":[4]
+        "Play":[0], 
+        "PlayAgain":[1], 
+        "angry-bird-1":[2], 
+        "angry-bird-2":[3], 
+        "angry-bird-3":[4], 
+        "egg":[5], 
+        "pig angry birds":[6]
 },
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:8d9e2a3026c8b55e17769c5cee254b49:07bb48f37eb5fdfd97d4c0f0936a376a:cbce6b53f0f49e0bf15173c25c41f876$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:50268374571db25ede8beeead8c40a3e:1ec58ac3fbef8b7815b7dc65215c6c32:cbce6b53f0f49e0bf15173c25c41f876$",
         "Created with TexturePacker (http://www.texturepacker.com) for EaselJS"
 ]
 }

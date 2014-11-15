@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>easeljs</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>atlas.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -145,7 +145,7 @@
             <key>json</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>atlas.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -190,6 +190,8 @@
         <array>
             <filename>pig angry birds.png</filename>
             <filename>egg.png</filename>
+            <filename>Play.png</filename>
+            <filename>PlayAgain.png</filename>
             <filename>angry-bird-1.png</filename>
             <filename>angry-bird-2.png</filename>
             <filename>angry-bird-3.png</filename>

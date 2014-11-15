@@ -1,10 +1,11 @@
 ﻿var constants;
 (function (constants) {
     // game constants
-    constants.PIG_NUM = 3;
+    constants.PIG_NUM = 4;
     constants.PLAYER_LIVES = 3;
-    constants.GAME_FONT = "40px Consolas";
-    constants.FONT_COLOUR = "#FFFF00";
+    constants.GAME_FONT = "bold 40px Consolas";
+    constants.FONT_COLOUR = "#FF530D";
+    constants.LOADER_WIDTH = 400;
 
     // game states
     constants.MENU_STATE = 0;

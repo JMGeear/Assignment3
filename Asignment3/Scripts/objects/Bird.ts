@@ -1,6 +1,6 @@
 ﻿module objects {
     // Bird Class
-    export class Bird extends objects.GameObject {
+    export class bird extends objects.GameObject {
         constructor(game: createjs.Container) {
             super("bird", game);
             this.x = 80;

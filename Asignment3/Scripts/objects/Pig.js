@@ -7,22 +7,22 @@
 var objects;
 (function (objects) {
     // Pig Class
-    var Pig = (function (_super) {
-        __extends(Pig, _super);
-        function Pig(game) {
+    var pig = (function (_super) {
+        __extends(pig, _super);
+        function pig(game) {
             _super.call(this, "pig", game);
 
             this.game.addChild(this);
             this.reset();
         }
-        Pig.prototype.reset = function () {
+        pig.prototype.reset = function () {
             this.x = stage.canvas.width + this.width;
             this.y = Math.floor(Math.random() * stage.canvas.height);
             this.dx = Math.floor(Math.random() * 5 + 5);
-            this.dy = Math.floor(Math.random() * 4 - 2);
+            this.dy = Math.floor(Math.random() * 2 - 1);
         };
 
-        Pig.prototype.update = function () {
+        pig.prototype.update = function () {
             this.x -= this.dx;
             this.y -= this.dy;
 
@@ -30,8 +30,8 @@ var objects;
                 this.reset();
             }
         };
-        return Pig;
+        return pig;
     })(objects.GameObject);
-    objects.Pig = Pig;
+    objects.pig = pig;
 })(objects || (objects = {}));
-//# sourceMappingURL=Pig.js.map
+//# sourceMappingURL=pig.js.map

@@ -1,41 +1,46 @@
 ﻿var managers;
 (function (managers) {
-    var Asset = (function () {
-        function Asset() {
+    var asset = (function () {
+        function asset() {
         }
-        Asset.init = function () {
+        asset.init = function () {
             this.loader = new createjs.LoadQueue();
             this.loader.installPlugin(createjs.Sound);
             this.loader.loadManifest(this.manifest);
 
             this.atlas = new createjs.SpriteSheet(this.spriteSheetData);
         };
-        Asset.spriteSheetData = {
+        asset.spriteSheetData = {
             "images": ["assets/images/atlas.png"],
             "frames": [
-                [219, 2, 65, 65],
-                [286, 2, 65, 65],
-                [219, 69, 65, 65],
-                [286, 69, 62, 63],
+                [219, 2, 320, 160],
+                [541, 2, 320, 160],
+                [863, 2, 65, 65],
+                [930, 2, 65, 65],
+                [863, 69, 65, 65],
+                [930, 69, 62, 63],
                 [2, 2, 215, 177]
             ],
             "animations": {
+                "play": [0],
+                "playagain": [1],
                 "bird": {
-                    frames: [0, 1, 2],
+                    frames: [2, 3, 4],
                     speed: 1
                 },
-                "egg": [3],
-                "pig": [4]
+                "egg": [5],
+                "pig": [6]
             }
         };
 
-        Asset.manifest = [
+        asset.manifest = [
             { id: "sky", src: "assets/images/sky.jpg" },
             { id: "coin", src: "assets/sounds/coin.mp3" },
+            { id: "anger", src: "assets/sounds/Stupid Girl.mp3" },
             { id: "pig", src: "assets/sounds/Pig.mp3" }
         ];
-        return Asset;
+        return asset;
     })();
-    managers.Asset = Asset;
+    managers.asset = asset;
 })(managers || (managers = {}));
 //# sourceMappingURL=asset.js.map

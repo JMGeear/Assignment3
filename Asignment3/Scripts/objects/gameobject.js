@@ -9,7 +9,7 @@ var objects;
     var GameObject = (function (_super) {
         __extends(GameObject, _super);
         function GameObject(spriteString, game) {
-            _super.call(this, managers.Asset.atlas, spriteString);
+            _super.call(this, managers.asset.atlas, spriteString);
             this.height = this.getBounds().height;
             this.width = this.getBounds().width;
             this.regY = this.height * 0.5;

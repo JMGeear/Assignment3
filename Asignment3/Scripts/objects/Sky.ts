@@ -1,12 +1,12 @@
 ﻿module objects {
     // Sky Class
-    export class Sky extends createjs.Bitmap {
+    export class sky extends createjs.Bitmap {
         width: number;
         height: number;
         game: createjs.Container;
         dx: number;
         constructor(game: createjs.Container) {
-            super(managers.Asset.loader.getResult("sky"));
+            super(managers.asset.loader.getResult("sky"));
             this.height = this.getBounds().height;
             this.width = this.getBounds().width;
             this.game = game;

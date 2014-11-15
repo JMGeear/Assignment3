@@ -5,10 +5,12 @@
 /// <reference path="objects/egg.ts" />
 /// <reference path="objects/pig.ts" />
 /// <reference path="objects/sky.ts" />
+/// <reference path="objects/button.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
+/// <reference path="states/instructions.ts" />
 
 /*bGame.ts
  * Author: Jeff Geear
@@ -19,14 +21,16 @@
  * Instructor Tom Tsiliopoulos
  */
 
+var stage: createjs.Stage, loaderBar, loadInterval;
+var percentLoaded = 0;
 var stage: createjs.Stage;
 var game: createjs.Container;
 
 // game objects
-var bird: objects.Bird;
-var egg: objects.Egg;
+var bird: objects.bird;
+var egg: objects.egg;
 var pigs = [];
-var sky: objects.Sky;
+var sky: objects.sky;
 var scoreboard: objects.Scoreboard;
 
 var currentState: number;
@@ -35,8 +39,11 @@ var currentStateFunction;
 
 // Preload function
 function preload(): void {
-    managers.Asset.init();
-    managers.Asset.loader.addEventListener("complete", init);
+    setupStage();
+    buildLoaderBar();
+    startLoad();
+    managers.asset.init();
+    managers.asset.loader.addEventListener("complete", init);
 
 }
 
@@ -45,12 +52,67 @@ function init(): void {
     stage.enableMouseOver(20);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
-
     currentState = constants.MENU_STATE;
     changeState(currentState);
+    optimizeForTouchAndScreens();
 
     gameStart();
+ 
 }
+
+/*enable touchscreen functionality*/
+function optimizeForTouchAndScreens() {
+    if (createjs.Touch.isSupported()) {
+        createjs.Touch.enable(stage);
+    }
+}
+
+/*Sets up stage for loader bar*/
+function setupStage() {
+    stage = new createjs.Stage(document.getElementById('canvas'));
+    createjs.Ticker.setFPS(60);
+    createjs.Ticker.addEventListener("tick", function (e) {
+        stage.update();
+    });
+}
+
+/*Draws loader bar*/
+function buildLoaderBar() {
+    loaderBar = new createjs.Shape();
+    loaderBar.x = loaderBar.y = 100;
+    loaderBar.graphics.setStrokeStyle(2);
+    loaderBar.graphics.beginStroke("#000");
+    loaderBar.graphics.drawRect(0, 0, constants.LOADER_WIDTH, 40);
+    stage.addChild(loaderBar);
+}
+
+/*Redraws loader bar after each update*/
+function updateLoaderBar() {
+    loaderBar.graphics.clear();
+    loaderBar.graphics.beginFill('#FF530D');
+    loaderBar.graphics.drawRect(0, 0, constants.LOADER_WIDTH * percentLoaded, 40);
+    loaderBar.graphics.endFill();
+    loaderBar.graphics.setStrokeStyle(2);
+    loaderBar.graphics.beginStroke("#000");
+    loaderBar.graphics.drawRect(0, 0, constants.LOADER_WIDTH, 40);
+    loaderBar.graphics.endStroke();
+}
+
+/*Loader bar interval created*/
+function startLoad() {
+    loadInterval = setInterval(updateLoad, 50);
+}
+
+/*Updates the percentage of the preloaded assets*/
+function updateLoad() {
+    percentLoaded += .005;
+    updateLoaderBar();
+    if (percentLoaded >= 1) {
+        clearInterval(loadInterval);
+        stage.removeChild(loaderBar);
+    }
+}
+
 
 // Game Loop
 function gameLoop(event): void {
@@ -65,17 +127,19 @@ function changeState(state: number) {
     switch (state) {
         case constants.MENU_STATE:
             currentStateFunction = states.menuState;
-            states.Menu();
+            states.menu();
             break;
         case constants.PLAY_STATE:
             currentStateFunction = states.playState;
-            states.Play();
+            states.play();
             break;
         case constants.GAME_OVER_STATE:
             currentStateFunction = states.gameOverState;
-            states.GameOver();
+            states.gameOver();
             break;
         case constants.INSTRUCTIONS_STATE:
+            currentStateFunction = states.infoState;
+            states.info();
             break;
 
     }
@@ -125,10 +189,10 @@ function birdAndEgg() {
 }
 
 // Check Collision with Bird and Pig
-function birdAndPig(thePig: objects.Pig) {
+function birdAndPig(thePig: objects.pig) {
     var p1: createjs.Point = new createjs.Point();
     var p2: createjs.Point = new createjs.Point();
-    var pig: objects.Pig = new objects.Pig(game);
+    var pig: objects.pig = new objects.pig(game);
 
     pig = thePig;
 
@@ -153,5 +217,10 @@ function collisionCheck() {
 }
 
 function gameStart(): void {
+    createjs.Sound.play('anger', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+}
 
-    }
+function removeObject() {
+
+    pigs.splice(0, 1); //first element removed
+}
